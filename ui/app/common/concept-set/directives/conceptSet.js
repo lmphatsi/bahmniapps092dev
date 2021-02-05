@@ -260,7 +260,7 @@ angular.module('bahmni.common.conceptSet')
                             var daysDispenses = null;
                             var isTreamtentActive = false;
 
-                            $scope.$watch (function () {
+                            $scope.$watch(function () {
                                 matchingObsArray.forEach(switchRegimen => {
                                     if (switchRegimen.label == "Name of Regimen Switched to")
                                     {
