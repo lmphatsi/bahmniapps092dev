@@ -271,5 +271,5 @@ angular.module('bahmni.common.appFramework')
             };
 
         }
-                            
+
     ]);
