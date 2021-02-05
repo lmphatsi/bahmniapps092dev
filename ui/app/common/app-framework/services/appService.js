@@ -242,32 +242,33 @@ angular.module('bahmni.common.appFramework')
             this.setRegimen = function (_regimen) {
                 Regimen = _regimen;
             };
-            this.getRegimen = function() {
+            this.getRegimen = function () {
                 return Regimen;
             };
             this.setActive = function (_isActiveSet) {
                 isActiveSet = _isActiveSet;
             };
-            this.getActive = function() {
+            this.getActive = function () {
                 return isActiveSet;
             };
             this.setDeactivated = function (_isDeactivated) {
                 isDeactivated = _isDeactivated;
             };
-            this.getDeactivated = function() {
+            this.getDeactivated = function () {
                 return isDeactivated;
             };
             this.setFollowupdate = function (_Followupdate) {
                 Followupdate = _Followupdate;
             };
-            this.getFollowupdate = function() {
+            this.getFollowupdate = function () {
                 return Followupdate;
             };
             this.setOrderstatus = function (_isOderhasBeenSaved) {
-                isOderhasBeenSaved= _isOderhasBeenSaved;
+                isOderhasBeenSaved = _isOderhasBeenSaved;
             };
-            this.getOrderstatus = function() {
+            this.getOrderstatus = function () {
                 return isOderhasBeenSaved;
             };
 
-        }]);
+        }
+]);
