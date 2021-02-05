@@ -2,7 +2,7 @@
 
 angular.module('bahmni.common.conceptSet')
     .directive('conceptSet', ['$rootScope', 'contextChangeHandler', 'appService', 'observationsService', 'messagingService', 'conceptSetService', 'conceptSetUiConfigService', 'spinner', '$q',
-        function ($timeout,contextChangeHandler, appService, observationsService, messagingService, conceptSetService, conceptSetUiConfigService, spinner, $q) {
+        function ($timeout, contextChangeHandler, appService, observationsService, messagingService, conceptSetService, conceptSetUiConfigService, spinner, $q) {
             var controller = function ($scope) {
                 var conceptSetName = $scope.conceptSetName;
                 var ObservationUtil = Bahmni.Common.Obs.ObservationUtil;
@@ -19,8 +19,6 @@ angular.module('bahmni.common.conceptSet')
                 $scope.showTitleValue = $scope.showTitle();
                 $scope.numberOfVisits = conceptSetUIConfig[conceptSetName] && conceptSetUIConfig[conceptSetName].numberOfVisits ? conceptSetUIConfig[conceptSetName].numberOfVisits : null;
                 $scope.hideAbnormalButton = conceptSetUIConfig[conceptSetName] && conceptSetUIConfig[conceptSetName].hideAbnormalButton;
-       
-               
                
                 var focusFirstObs = function () {
                     if ($scope.conceptSetFocused && $scope.rootObservation.groupMembers && $scope.rootObservation.groupMembers.length > 0) {
@@ -243,10 +241,7 @@ angular.module('bahmni.common.conceptSet')
                     }
                 };
 
-        
-
                 var processConditions = function (flattenedObs, fields, disable, error, hide) {
-
 
                     _.each(fields, function (field) {
                         var matchingObsArray = [];
@@ -268,7 +263,7 @@ angular.module('bahmni.common.conceptSet')
 
                             $scope.$watch(function() { 
                                 matchingObsArray.forEach(switchRegimen => {
-                                    if(switchRegimen.label =="Name of Regimen Switched to") 
+                                    if(switchRegimen.label == "Name of Regimen Switched to") 
                                     {
                                         if(switchRegimen.value != undefined)
                                         {
@@ -276,7 +271,7 @@ angular.module('bahmni.common.conceptSet')
                                         }
     
                                     }
-                                    else if(switchRegimen.label =="Treatment Substitution") 
+                                    else if(switchRegimen.label == "Treatment Substitution") 
                                     {
                                         if(switchRegimen.groupMembers[1].value != undefined)
                                         {
