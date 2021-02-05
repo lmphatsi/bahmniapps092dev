@@ -270,7 +270,4 @@ angular.module('bahmni.common.appFramework')
                 return isOderhasBeenSaved;
             };
 
-        }
-
-
-    ]);
+        }]);
