@@ -58,7 +58,7 @@ jobs:
      
     - name: Push production code to release repo
       run: |
-        cd /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+        cd /home/runner/work/bahmniapps092dev/bahmniapps092dev/ui/dist/
         git init
         git branch -m bahmniapps_build
         git add .
@@ -66,11 +66,11 @@ jobs:
         git config --global user.name "lmphatsi"
         git commit -m "release changes to production code (dist)"
         git status
-        git remote add github https://${{ secrets.GH_TOKEN }}@github.com/lmphatsi/openmrs-module-bahmniapps.git
+        git remote add github https://${{ secrets.GH_TOKEN }}@github.com/lmphatsi/bahmniapps092dev.git
         git push -f github bahmniapps_build
     
     - name: Create Tarball of the build (production code)
-      run: tar -zcvf dist_2301_28012021.tar.gz /home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist/
+      run: tar -zcvf dist_2301_05022021.tar.gz /home/runner/work/bahmniapps092dev/bahmniapps092dev/ui/dist/
     
     - name: Ship the build to remote host
       uses: appleboy/scp-action@master
@@ -79,5 +79,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         password: ${{ secrets.PASSWORD }}
-        source: "/home/runner/work/openmrs-module-bahmniapps/openmrs-module-bahmniapps/ui/dist_2301_28012021.tar.gz"
+        source: "/home/runner/work/bahmniapps092dev/bahmniapps092dev/ui/dist_2301_05012021.tar.gz"
         target: "test"
