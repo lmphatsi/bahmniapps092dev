@@ -269,5 +269,4 @@ angular.module('bahmni.common.appFramework')
             this.getOrderstatus = function () {
                 return isOderhasBeenSaved;
             };
-
         }]);
