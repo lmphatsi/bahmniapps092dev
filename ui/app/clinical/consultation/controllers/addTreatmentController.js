@@ -774,7 +774,7 @@ angular.module('bahmni.clinical')
                 var promisesToCalculateDose = _.map(orderSetMemberTemplates, putCalculatedDose);
                 var returnOrderSet = function () { return orderSet; };
                 return $q.all(promisesToCalculateDose).then(returnOrderSet);
-                }catch{;}
+                }catch{}
             };
             var createDrugOrderViewModel = function (orderTemplate) {
                 orderTemplate.effectiveStartDate = $scope.newOrderSet.date;
