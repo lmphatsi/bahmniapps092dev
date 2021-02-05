@@ -242,7 +242,6 @@ angular.module('bahmni.common.conceptSet')
                 };
 
                 var processConditions = function (flattenedObs, fields, disable, error, hide) {
-
                     _.each(fields, function (field) {
                         var matchingObsArray = [];
                         var clonedObsInSameGroup;
@@ -261,7 +260,7 @@ angular.module('bahmni.common.conceptSet')
                             var daysDispenses = null;
                             var isTreamtentActive = false;
 
-                            $scope.$watch (function() {
+                            $scope.$watch (function () {
                                 matchingObsArray.forEach(switchRegimen => {
                                     if (switchRegimen.label == "Name of Regimen Switched to")
                                     {
@@ -269,7 +268,6 @@ angular.module('bahmni.common.conceptSet')
                                         {
                                             appService.setRegimen(switchRegimen.value.displayString);
                                         }
-
                                     }
                                     else if (switchRegimen.label == "Treatment Substitution")
                                     {
@@ -291,8 +289,8 @@ angular.module('bahmni.common.conceptSet')
                                         {
                                             daysDispenses = element.value;
                                         }
-                                    };
-                                   
+                                    }
+
                                     if (element.label == "Follow-up date")
                                     {
                                         if (element.value != undefined)
