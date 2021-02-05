@@ -19,7 +19,7 @@ angular.module('bahmni.common.conceptSet')
                 $scope.showTitleValue = $scope.showTitle();
                 $scope.numberOfVisits = conceptSetUIConfig[conceptSetName] && conceptSetUIConfig[conceptSetName].numberOfVisits ? conceptSetUIConfig[conceptSetName].numberOfVisits : null;
                 $scope.hideAbnormalButton = conceptSetUIConfig[conceptSetName] && conceptSetUIConfig[conceptSetName].hideAbnormalButton;
-               
+
                 var focusFirstObs = function () {
                     if ($scope.conceptSetFocused && $scope.rootObservation.groupMembers && $scope.rootObservation.groupMembers.length > 0) {
                         var firstObs = _.find($scope.rootObservation.groupMembers, function (obs) {
@@ -261,45 +261,45 @@ angular.module('bahmni.common.conceptSet')
                             var daysDispenses = null;
                             var isTreamtentActive = false;
 
-                            $scope.$watch(function() { 
+                            $scope.$watch (function() {
                                 matchingObsArray.forEach(switchRegimen => {
-                                    if(switchRegimen.label == "Name of Regimen Switched to") 
+                                    if (switchRegimen.label == "Name of Regimen Switched to")
                                     {
-                                        if(switchRegimen.value != undefined)
+                                        if (switchRegimen.value != undefined)
                                         {
                                             appService.setRegimen(switchRegimen.value.displayString);
                                         }
-    
+
                                     }
-                                    else if(switchRegimen.label == "Treatment Substitution") 
+                                    else if (switchRegimen.label == "Treatment Substitution")
                                     {
-                                        if(switchRegimen.groupMembers[1].value != undefined)
+                                        if (switchRegimen.groupMembers[1].value != undefined)
                                         {
                                             appService.setRegimen(switchRegimen.groupMembers[1].value.displayString);
                                         }
                                     }
-                                    else if(switchRegimen.label == "ART Regimen"){
-                                        if(switchRegimen.value != undefined)
+                                    else if (switchRegimen.label == "ART Regimen") {
+                                        if (switchRegimen.value != undefined)
                                         {
                                             appService.setRegimen(switchRegimen.value.value);
                                         }
                                     }
                                 });
                                 obsTreatment.forEach(element => {
-                                    if(element.label == "ARV drugs days dispensed"){
-                                        if(element.value != undefined)
+                                    if (element.label == "ARV drugs days dispensed") {
+                                        if (element.value != undefined)
                                         {
                                             daysDispenses = element.value;
                                         }
                                     };
                                    
-                                    if(element.label == "Follow-up date")
+                                    if (element.label == "Follow-up date")
                                     {
-                                        if(element.value != undefined )
+                                        if (element.value != undefined)
                                         {
                                             appService.setFollowupdate(element.value);
                                             var isNotEmpty = appService.getDeactivated();
-                                            var isDeactivated = isNotEmpty == null ?  false : isNotEmpty;
+                                            var isDeactivated = isNotEmpty == null ? false : isNotEmpty;
                                             if (isDeactivated == false)
                                             {
                                                 appService.setActive(true);
@@ -310,9 +310,8 @@ angular.module('bahmni.common.conceptSet')
                                             }
                                         }
                                     }
-                                })
+                                });
                             });
-                            
                         } else {
                             messagingService.showMessage("error", "No element found with name : " + field);
                         }
@@ -431,7 +430,6 @@ angular.module('bahmni.common.conceptSet')
                                             observationDateTime: regimen.observationDateTime
                                         });
                                     });
-                                    
 
                                     $scope.conceptSet = response[0].data.results[0];
                                     $scope.rootObservation = $scope.conceptSet ? observationMapper.map($scope.observations, $scope.conceptSet, conceptSetUIConfig) : null;
